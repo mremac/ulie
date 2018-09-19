@@ -1,3 +1,5 @@
+
+
 import cv2
 import sys
 import serial
@@ -12,6 +14,7 @@ global instList
 global basicPatrolLoop
 instList = ['2','2','3','3','2','2','3','3','2','2','3','3','2','2','3']
 basicPatrolLoop = ['2', '2', '3', '3']
+reactionProtocol = ['4', '4', '4', '4']
 global bplCount
 bplCount = 0
 
@@ -67,9 +70,9 @@ def faceDetect():
             if rdm == 2:
                 pygame.mixer.music.load("Marowak.mp3")
             if rdm == 3:
-                pygame.mixer.music.load("Raichu.mp3")
-            if rdm == 4:
                 pygame.mixer.music.load("Dragonite.mp3")
+            if rdm == 4:
+                pygame.mixer.music.load("Raichu.mp3")
             pygame.mixer.music.play()
             print "fd-face detected"
             print "fd-adding instructions"
@@ -79,11 +82,11 @@ def faceDetect():
             instList.pop()
             instList.pop()
             instList.pop()
-            instList.insert(14, '4')
-            instList.insert(14, '4')
-            instList.insert(14, '4')
-            instList.insert(14, '4')
-            instList.insert(14, '4')
+            instList.insert(14, reactionProtocol[0])
+            instList.insert(14, reactionProtocol[1])
+            instList.insert(14, reactionProtocol[2])
+            instList.insert(14, reactionProtocol[3])
+            instList.insert(14, reactionProtocol[4])
     ##        pygame.mixer.music.load("297-mewto.mp3")
     ##        pygame.mixer.music.play()
     ##        while pygame.mixer.music.get_busy() == True:
@@ -131,3 +134,4 @@ except:
 # When everything is done, release the capture
 video_capture.release()
 cv2.destroyAllWindows()
+
